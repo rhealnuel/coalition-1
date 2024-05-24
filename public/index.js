@@ -16,35 +16,22 @@ axios.get(apiUrl, {
         const data = response.data
         console.log(data);
         var list = document.getElementById('list')
-        var info = document.getElementById('info')
-        var icon = document.getElementById('icon')
-        data.forEach(item => {
-        parent.key=item.id
+    const htmlElements = data.map(data => `
+  <div>
+    <div>
+      <img src="${data.image}" />
+      <div>
+        <p>${data.text1}</p>
+        <p>${data.text2}</p>
+      </div>
+    </div>
+    <div>...</div>
+  </div>
+`);
 
-        var a = document.createElement('img')
-        a.setAttribute("src", item.profile_picture)
-        a.setAttribute("alt", '')
-        a.setAttribute("id", "image")
+// Join the array of HTML elements into a single string
+list.innerHtml = htmlElements.join("");
 
-        var b = document.createElement('p')
-        b.innerHTML = item.name
-
-        var c = document.createElement('p')
-        c.innerHTML = item.gender + ", " + item.age
-
-        var d = document.createElement('img')
-        d.setAttribute("src", "/assets/threedot.png")
-        d.setAttribute("alt", "")
-        
-        
-        
-        
-        
-        list.appendChild(a)
-        info.appendChild(b)
-        info.appendChild(c)
-        icon.appendChild(d)
-    })
 })
 .catch(error =>{
     console.log(error);
