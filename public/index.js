@@ -19,10 +19,10 @@ axios.get(apiUrl, {
     const htmlElements = data.map(data => `
   <div>
     <div>
-      <img src="${data.image}" />
+      <img src="${data.profile_picture}" />
       <div>
-        <p>${data.text1}</p>
-        <p>${data.text2}</p>
+        <p>${data.name}</p>
+        <p>${data.age}</p>
       </div>
     </div>
     <div>...</div>
